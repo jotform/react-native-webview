@@ -762,6 +762,9 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
 
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, String url) {
+      if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N && url.startsWith("file://")) {
+        return false;
+      }
       progressChangedFilter.setWaitingForCommandLoadUrl(true);
       dispatchEvent(
         view,
@@ -775,6 +778,9 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
     @TargetApi(Build.VERSION_CODES.N)
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+      if (!request.isForMainFrame()) {
+        return false;
+      }
       final String url = request.getUrl().toString();
       return this.shouldOverrideUrlLoading(view, url);
     }
