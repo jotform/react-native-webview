@@ -1,5 +1,6 @@
 This fork fixes iframe redirect on local files [see original issue](https://github.com/react-native-webview/react-native-webview/issues/560)
-# React Native WebView
+
+# React Native WebView - a Modern, Cross-Platform WebView for React Native
 
 ![star this repo](https://img.shields.io/github/stars/react-native-webview/react-native-webview?style=flat-square)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
@@ -10,10 +11,10 @@ This fork fixes iframe redirect on local files [see original issue](https://gith
 
 ### Maintainers
 
-**Many thanks to these companies** for providing us with time to work on open source.  
+**Many thanks to these companies** for providing us with time to work on open source.
 Please note that maintainers spend a lot of free time working on this too so feel free to sponsor them, **it really makes a difference.**
 
-- [Thibault Malbranche](https://github.com/Titozzz) ([Twitter @titozzz](https://twitter.com/titozzz)) from [Brigad](https://www.brigad.co/en-gb/about-us)  
+- [Thibault Malbranche](https://github.com/Titozzz) ([Twitter @titozzz](https://twitter.com/titozzz)) from [Brigad](https://www.brigad.co/en-gb/about-us)
 [*Sponsor me* ❤️ !](https://github.com/sponsors/Titozzz)
 
 
@@ -27,13 +28,13 @@ Shout-out to [Jamon Holmgren](https://github.com/jamonholmgren) from [Infinite R
 
 Maintaining WebView is very complex, because it is often used for many different usecases (rendering svgs, pdfs, login flows, and much more). We also support many platforms and both architecture of react-native.
 
-Since WebView was extracted from React Native core, nearly 500 pull requests have been merged.  
-Considering that we have limited time, issues will mostly serve as a discussion place for the community, while **we will prioritize reviewing and merging pull requests.** 
+Since WebView was extracted from React Native core, nearly 500 pull requests have been merged.
+Considering that we have limited time, issues will mostly serve as a discussion place for the community, while **we will prioritize reviewing and merging pull requests.**
 
 ### Platform compatibility
 
-This project is compatible with **iOS**,  **Android**, **Windows** and **macOS**.  
-This project support both **the old** (paper) **and the new architecture** (fabric).  
+This project is compatible with **iOS**,  **Android**, **Windows** and **macOS**.
+This project support both **the old** (paper) **and the new architecture** (fabric).
 This project is compatible with [expo](https://docs.expo.dev/versions/latest/sdk/webview/).
 
 ### Getting Started
