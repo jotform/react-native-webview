@@ -242,6 +242,7 @@ export interface CommonNativeWebViewProps extends ViewProps {
   injectedJavaScriptBeforeContentLoaded?: string;
   javaScriptCanOpenWindowsAutomatically?: boolean;
   mediaPlaybackRequiresUserAction?: boolean;
+  webviewDebuggingEnabled?: boolean;
   messagingEnabled: boolean;
   onScroll?: (event: NativeScrollEvent) => void;
   onLoadingError: (event: WebViewErrorEvent) => void;
@@ -719,7 +720,7 @@ export interface AndroidWebViewProps extends WebViewSharedProps {
    */
   geolocationEnabled?: boolean;
 
-  
+
   /**
    * Boolean that sets whether JavaScript running in the context of a file
    * scheme URL should be allowed to access content from other file scheme URLs.
@@ -959,4 +960,9 @@ export interface WebViewSharedProps extends ViewProps {
    * Should caching be enabled. Default is true.
    */
   cacheEnabled?: boolean;
+
+  /**
+   * Enables WebView remote debugging using Chrome (Android) or Safari (iOS).
+   */
+  webviewDebuggingEnabled?: boolean;
 }
