@@ -286,7 +286,8 @@ static NSDictionary* customCertificatesForHost;
       _webView.scrollView.contentInsetAdjustmentBehavior = _savedContentInsetAdjustmentBehavior;
     }
 #endif
-
+    if (@available(macOS 13.3, iOS 16.4, tvOS 16.4, *))
+      _webView.inspectable = _webviewDebuggingEnabled;
     [self addSubview:_webView];
     [self setHideKeyboardAccessoryView: _savedHideKeyboardAccessoryView];
     [self setKeyboardDisplayRequiresUserAction: _savedKeyboardDisplayRequiresUserAction];
@@ -298,6 +299,12 @@ static NSDictionary* customCertificatesForHost;
 - (void)setAllowsBackForwardNavigationGestures:(BOOL)allowsBackForwardNavigationGestures {
   _allowsBackForwardNavigationGestures = allowsBackForwardNavigationGestures;
   _webView.allowsBackForwardNavigationGestures = _allowsBackForwardNavigationGestures;
+}
+
+- (void)setWebviewDebuggingEnabled:(BOOL)webviewDebuggingEnabled {
+  _webviewDebuggingEnabled = webviewDebuggingEnabled;
+  if (@available(macOS 13.3, iOS 16.4, tvOS 16.4, *))
+      _webView.inspectable = _webviewDebuggingEnabled;
 }
 
 

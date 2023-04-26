@@ -319,6 +319,12 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
     }
   }
 
+  @ReactProp(name = "webviewDebuggingEnabled")
+  public void setWebviewDebuggingEnabled(RNCWebView view, boolean value) {
+      RNCWebView.setWebContentsDebuggingEnabled(enabled)
+  }
+
+
   @ReactProp(name = "textZoom")
   public void setTextZoom(WebView view, int value) {
     view.getSettings().setTextZoom(value);
