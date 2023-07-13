@@ -1269,6 +1269,10 @@ RCTAutoInsetsProtocol>
             @"hasTargetFrame": @(hasTargetFrame),
             @"lockIdentifier": @(lockIdentifier)
         }];
+        if (!navigationAction.targetFrame.isMainFrame){
+          decisionHandler(WKNavigationActionPolicyAllow);
+          return;
+        }
         _onShouldStartLoadWithRequest(event);
         // decisionHandler(WKNavigationActionPolicyAllow);
         return;
