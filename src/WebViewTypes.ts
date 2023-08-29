@@ -14,16 +14,17 @@ import {
 import type NativeWebViewComponent from './RNCWebViewNativeComponent'
 
 type WebViewCommands =
-    | 'goForward'
-    | 'goBack'
-    | 'reload'
-    | 'stopLoading'
-    | 'postMessage'
-    | 'injectJavaScript'
-    | 'loadUrl'
-    | 'requestFocus';
+  | 'goForward'
+  | 'goBack'
+  | 'reload'
+  | 'stopLoading'
+  | 'postMessage'
+  | 'injectJavaScript'
+  | 'loadUrl'
+  | 'requestFocus'
+  | 'clearCache';
 
-type AndroidWebViewCommands = 'clearHistory' | 'clearCache' | 'clearFormData';
+type AndroidWebViewCommands = 'clearHistory' | 'clearFormData';
 
 interface RNCWebViewUIManager<Commands extends string> extends UIManagerStatic {
   getViewManagerConfig: (name: string) => {
@@ -32,8 +33,8 @@ interface RNCWebViewUIManager<Commands extends string> extends UIManagerStatic {
 }
 
 export type RNCWebViewUIManagerAndroid = RNCWebViewUIManager<
-    WebViewCommands | AndroidWebViewCommands
-    >;
+  WebViewCommands | AndroidWebViewCommands
+>;
 export type RNCWebViewUIManagerIOS = RNCWebViewUIManager<WebViewCommands>;
 export type RNCWebViewUIManagerMacOS = RNCWebViewUIManager<WebViewCommands>;
 export type RNCWebViewUIManagerWindows = RNCWebViewUIManager<WebViewCommands>;
@@ -62,13 +63,13 @@ type Constructor<T> = new (...args: any[]) => T;
 // eslint-disable-next-line react/prefer-stateless-function
 declare class NativeWebViewMacOSComponent extends Component<MacOSNativeWebViewProps> {}
 declare const NativeWebViewMacOSBase: Constructor<NativeMethodsMixin> &
-    typeof NativeWebViewMacOSComponent;
+  typeof NativeWebViewMacOSComponent;
 export class NativeWebViewMacOS extends NativeWebViewMacOSBase {}
 
 // eslint-disable-next-line react/prefer-stateless-function
 declare class NativeWebViewWindowsComponent extends Component<WindowsNativeWebViewProps> {}
 declare const NativeWebViewWindowsBase: Constructor<NativeMethodsMixin> &
-    typeof NativeWebViewWindowsComponent;
+  typeof NativeWebViewWindowsComponent;
 export class NativeWebViewWindows extends NativeWebViewWindowsBase {}
 
 export interface ContentInsetProp {
@@ -93,12 +94,12 @@ export interface WebViewNativeProgressEvent extends WebViewNativeEvent {
 
 export interface WebViewNavigation extends WebViewNativeEvent {
   navigationType:
-      | 'click'
-      | 'formsubmit'
-      | 'backforward'
-      | 'reload'
-      | 'formresubmit'
-      | 'other';
+    | 'click'
+    | 'formsubmit'
+    | 'backforward'
+    | 'reload'
+    | 'formresubmit'
+    | 'other';
   mainDocumentURL?: string;
 }
 
@@ -141,12 +142,12 @@ export interface WebViewOpenWindow {
 export type WebViewEvent = NativeSyntheticEvent<WebViewNativeEvent>;
 
 export type WebViewProgressEvent =
-    NativeSyntheticEvent<WebViewNativeProgressEvent>;
+  NativeSyntheticEvent<WebViewNativeProgressEvent>;
 
 export type WebViewNavigationEvent = NativeSyntheticEvent<WebViewNavigation>;
 
 export type ShouldStartLoadRequestEvent =
-    NativeSyntheticEvent<ShouldStartLoadRequest>;
+  NativeSyntheticEvent<ShouldStartLoadRequest>;
 
 export type FileDownloadEvent = NativeSyntheticEvent<FileDownload>;
 
@@ -159,30 +160,30 @@ export type WebViewTerminatedEvent = NativeSyntheticEvent<WebViewNativeEvent>;
 export type WebViewHttpErrorEvent = NativeSyntheticEvent<WebViewHttpError>;
 
 export type WebViewRenderProcessGoneEvent =
-    NativeSyntheticEvent<WebViewRenderProcessGoneDetail>;
+  NativeSyntheticEvent<WebViewRenderProcessGoneDetail>;
 
 export type WebViewOpenWindowEvent = NativeSyntheticEvent<WebViewOpenWindow>;
 
 export type WebViewScrollEvent = NativeSyntheticEvent<NativeScrollEvent>;
 
 export type DataDetectorTypes =
-    | 'phoneNumber'
-    | 'link'
-    | 'address'
-    | 'calendarEvent'
-    | 'trackingNumber'
-    | 'flightNumber'
-    | 'lookupSuggestion'
-    | 'none'
-    | 'all';
+  | 'phoneNumber'
+  | 'link'
+  | 'address'
+  | 'calendarEvent'
+  | 'trackingNumber'
+  | 'flightNumber'
+  | 'lookupSuggestion'
+  | 'none'
+  | 'all';
 
 export type OverScrollModeType = 'always' | 'content' | 'never';
 
 export type CacheMode =
-    | 'LOAD_DEFAULT'
-    | 'LOAD_CACHE_ONLY'
-    | 'LOAD_CACHE_ELSE_NETWORK'
-    | 'LOAD_NO_CACHE';
+  | 'LOAD_DEFAULT'
+  | 'LOAD_CACHE_ONLY'
+  | 'LOAD_CACHE_ELSE_NETWORK'
+  | 'LOAD_NO_CACHE';
 
 export type AndroidLayerType = 'none' | 'software' | 'hardware';
 
@@ -261,8 +262,8 @@ export interface WebViewNativeConfig {
    * The native component used to render the WebView.
    */
   component?:
-      | typeof NativeWebViewMacOS
-      | typeof NativeWebViewComponent;
+    | typeof NativeWebViewMacOS
+    | typeof NativeWebViewComponent;
   /**
    * Set props directly on the native component WebView. Enables custom props which the
    * original WebView doesn't pass through.
@@ -276,7 +277,7 @@ export interface WebViewNativeConfig {
 }
 
 export type OnShouldStartLoadWithRequest = (
-    event: ShouldStartLoadRequest,
+  event: ShouldStartLoadRequest,
 ) => boolean;
 
 export interface BasicAuthCredential {
@@ -324,17 +325,17 @@ export interface CommonNativeWebViewProps extends ViewProps {
 }
 
 export declare type ContentInsetAdjustmentBehavior =
-    | 'automatic'
-    | 'scrollableAxes'
-    | 'never'
-    | 'always';
+  | 'automatic'
+  | 'scrollableAxes'
+  | 'never'
+  | 'always';
 
 export declare type MediaCapturePermissionGrantType =
-    | 'grantIfSameHostElsePrompt'
-    | 'grantIfSameHostElseDeny'
-    | 'deny'
-    | 'grant'
-    | 'prompt';
+  | 'grantIfSameHostElsePrompt'
+  | 'grantIfSameHostElseDeny'
+  | 'deny'
+  | 'grant'
+  | 'prompt';
 
 export declare type ContentMode = 'recommended' | 'mobile' | 'desktop';
 
@@ -711,10 +712,10 @@ export interface IOSWebViewProps extends WebViewSharedProps {
    * @platform ios, android
    */
   onCustomMenuSelection?: (event: {nativeEvent: {
-      label: string;
-      key: string;
-      selectedText: string;
-    }
+    label: string;
+    key: string;
+    selectedText: string;
+  }
   }) => void;
 
   /**
@@ -1129,9 +1130,9 @@ export interface WebViewSharedProps extends ViewProps {
    * Function that returns a view to show if there's an error.
    */
   renderError?: (
-      errorDomain: string | undefined,
-      errorCode: number,
-      errorDesc: string,
+    errorDomain: string | undefined,
+    errorCode: number,
+    errorDesc: string,
   ) => ReactElement; // view to show if there's an error
 
   /**
@@ -1142,7 +1143,7 @@ export interface WebViewSharedProps extends ViewProps {
   /**
    * Function that is invoked when the `WebView` scrolls.
    */
-  onScroll?: ComponentProps<typeof NativeWebViewComponent>['onScroll'];
+   onScroll?: ComponentProps<typeof NativeWebViewComponent>['onScroll'];
 
   /**
    * Function that is invoked when the `WebView` has finished loading.
