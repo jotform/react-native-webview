@@ -93,14 +93,14 @@ public class RNCWebViewClient extends WebViewClient {
           return false;
         }
 
-        if (!isJsDebugging && rncWebView.mCatalystInstance != null) {
+        if (!isJsDebugging && rncWebView.mMessagingJSModule != null) {
             final Pair<Double, AtomicReference<RNCWebViewModuleImpl.ShouldOverrideUrlLoadingLock.ShouldOverrideCallbackState>> lock = RNCWebViewModuleImpl.shouldOverrideUrlLoadingLock.getNewLock();
             final double lockIdentifier = lock.first;
             final AtomicReference<RNCWebViewModuleImpl.ShouldOverrideUrlLoadingLock.ShouldOverrideCallbackState> lockObject = lock.second;
 
             final WritableMap event = createWebViewEvent(view, url);
             event.putDouble("lockIdentifier", lockIdentifier);
-            rncWebView.sendDirectMessage("onShouldStartLoadWithRequest", event);
+            rncWebView.dispatchDirectShouldStartLoadWithRequest(event);
 
             try {
                 assert lockObject != null;
