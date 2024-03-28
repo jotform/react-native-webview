@@ -87,7 +87,7 @@ public class RNCWebViewClient extends WebViewClient {
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, String url) {
         final RNCWebView rncWebView = (RNCWebView) view;
-        final boolean isJsDebugging = ((ReactContext) view.getContext()).getJavaScriptContextHolder().get() == 0;
+        final boolean isJsDebugging = rncWebView.getReactApplicationContext().getJavaScriptContextHolder().get() == 0;
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N && url.startsWith("file://")) {
           return false;
