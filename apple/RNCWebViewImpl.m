@@ -494,6 +494,7 @@ RCTAutoInsetsProtocol>
 
 #if !TARGET_OS_OSX
   wkWebViewConfig.allowsInlineMediaPlayback = _allowsInlineMediaPlayback;
+  wkWebViewConfig.allowsPictureInPictureMediaPlayback = _allowsPictureInPictureMediaPlayback;
   wkWebViewConfig.mediaTypesRequiringUserActionForPlayback = _mediaPlaybackRequiresUserAction
   ? WKAudiovisualMediaTypeAll
   : WKAudiovisualMediaTypeNone;
