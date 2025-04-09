@@ -40,6 +40,9 @@ import org.json.JSONObject;
 import java.util.List;
 import java.util.Map;
 
+import android.print.PrintAttributes;
+import android.print.PrintManager;
+
 public class RNCWebView extends WebView implements LifecycleEventListener {
     protected @Nullable
     String injectedJS;
@@ -292,9 +295,9 @@ public class RNCWebView extends WebView implements LifecycleEventListener {
     public void callInjectedJavaScriptBeforeContentLoaded() {
         if (getSettings().getJavaScriptEnabled()) {
           // This is necessary to support window.print() in the loaded web pages.
-          evaluateJavascriptWithFallback(
-            "(function(){window.print=function(){window.ReactNativeWebView.print();};})();"
-          );
+          //  evaluateJavascriptWithFallback(
+          //  "(function(){window.print=function(){window.ReactNativeWebView.print();};})();"
+          // );
 
           if (injectedJSBeforeContentLoaded != null &&
             !TextUtils.isEmpty(injectedJSBeforeContentLoaded)) {
@@ -329,6 +332,14 @@ public class RNCWebView extends WebView implements LifecycleEventListener {
                         mWebView.sendDirectMessage("onMessage", data);
                     } else {
                         dispatchEvent(webView, new TopMessageEvent(RNCWebViewWrapper.getReactTagFromWebView(webView), data));
+                    }
+
+                    if(message.equals("android-print")){
+                        android.print.PrintDocumentAdapter printAdapter = mWebView.createPrintDocumentAdapter("Form");
+                        PrintManager printManager = (PrintManager) reactContext.getSystemService(Context.PRINT_SERVICE);
+                        if (printManager != null) {
+                            printManager.print("Form", printAdapter, new PrintAttributes.Builder().build());
+                        }
                     }
                 }
             });
